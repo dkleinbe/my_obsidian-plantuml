@@ -42,7 +42,20 @@ export class Replacer {
             return "[[" + file.basename + "]]";
         }));
     }
-
+    /**
+     * 
+     */
+    public encodeURIComponent(text: string): string {
+        return text.replace(/\[\[([\s\S]*?)\]\]/g, ((_, args) => {
+            const split = args.split("|");
+            const uri = encodeURIComponent(split[0])
+            return "[[" + uri + " {" +
+							split[0] +
+							"} " + 
+                            (split[1] ? split[1] : split[0]) + "]]";
+        }
+        ));
+    }
     /**
      * get the absolute path on the users computer
      * @param path vault local path
@@ -109,6 +122,15 @@ export function insertSvgImage(el: HTMLElement, image: string) {
     const links = svg.getElementsByTagName("a");
     for (let i = 0; i < links.length; i++) {
         const link = links[i];
+
+        if (link.href && typeof link.href === "object")
+        {
+
+            const uri = decodeURIComponent((link.href as SVGAnimatedString).baseVal);
+            (link.href as SVGAnimatedString).baseVal = uri;
+        
+        }
+        
         link.addClass("internal-link");
     }
 

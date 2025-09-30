@@ -1,10 +1,11 @@
 {
-  "name": "obsidian-plantuml",
-  "version": "1.6.6",
+  "name": "my_obsidian-plantuml",
+  "version": "10.8.0",
   "description": "PlantUML rendering for Obsidian.md",
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
+    "postdev": "node scripts/generateDevVersion.mjs",
     "build": "node esbuild.config.mjs production",
     "lint": "eslint . --ext .ts"
   },
@@ -12,6 +13,10 @@
   "author": "Johannes Theiner",
   "license": "MIT",
   "devDependencies": {
+    "@codemirror/commands": "6.0.0",
+    "@codemirror/language": "https://github.com/lishid/cm-language",
+    "@codemirror/search": "6.0.0",
+    "@codemirror/view": "6.0.0",
     "@types/binary-split": "^1.0.0",
     "@types/node": "^14.14.2",
     "@types/plantuml-encoder": "^1.4.0",
@@ -19,18 +24,15 @@
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
     "builtin-modules": "^3.2.0",
+    "copyfiles": "^2.4.1",
     "esbuild": "0.14.2",
     "eslint": "^7.22.0",
+    "localforage": "1.10.0",
     "node": "^17.2.0",
     "obsidian": "1.5.7-1",
     "plantuml-encoder": "^1.4.0",
     "tslib": "^2.3.1",
     "typescript": "^4.5.3",
-    "uuid": "^8.3.2",
-    "@codemirror/search": "6.0.0",
-    "@codemirror/view": "6.0.0",
-    "@codemirror/commands": "6.0.0",
-    "@codemirror/language": "https://github.com/lishid/cm-language",
-    "localforage": "1.10.0"
+    "uuid": "^8.3.2"
   }
 }

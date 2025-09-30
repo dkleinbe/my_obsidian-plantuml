@@ -52,6 +52,7 @@ export class DebouncedProcessors implements Processor {
 
             source = this.plugin.replacer.decodeWhiteSpaces(source);
             source = this.plugin.replacer.replaceLinks(source, this.plugin.replacer.getPath(ctx), filetype);
+            source = this.plugin.replacer.encodeURIComponent(source);
             source = this.plugin.settings.header + "\r\n" + source;
             await processor(source, el, ctx);
             el.addEventListener('contextmenu', (event) => {
