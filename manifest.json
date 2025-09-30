@@ -1,7 +1,7 @@
 {
 	"id": "my_obsidian-plantuml",
 	"name": "My PlantUML",
-	"version": "10.8.0",
+	"version": "10.9.1",
 	"minAppVersion": "1.5.7",
 	"description": "Render PlantUML Diagrams",
 	"author": "Johannes Theiner",
