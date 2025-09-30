@@ -44,7 +44,7 @@ esbuild.build({
         '@codemirror/view',
         ...builtins],
     format: 'cjs',
-    watch: false, //!prod,
+    watch: false, //!prod, (DKL: watch prevents posdev step to run)
     target: 'es2016',
     logLevel: "info",
     sourcemap: prod ? false : 'inline',
